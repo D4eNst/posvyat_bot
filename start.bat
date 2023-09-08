@@ -2,12 +2,14 @@
 
 rem Проверяем, существует ли папка venv
 if not exist venv (
-    echo Создание виртуального окружения...
+    echo creating virtual environment ...
     python -m venv venv
-    pip install -r requirements.txt
 )
 
+echo starting virtual environment ...
 call venv\Scripts\activate
+echo installing files ...
+call pip install -r requirements.txt
 
 python main.py
 

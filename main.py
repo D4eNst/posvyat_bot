@@ -29,8 +29,7 @@ async def answer(message: types.Message) -> None:
         if files.get("audio"):
             audios = [files.get('audio')] if not isinstance(files.get('audio'), list) else files.get('audio')
             audios_list = [InputMediaAudio(type="audio",
-                                           media=FSInputFile(f"files/audios/{audio}"),
-                                           caption="audio voice") for audio in audios]
+                                           media=FSInputFile(f"files/audios/{audio}")) for audio in audios]
             await bot.send_media_group(message.chat.id, media=audios_list)
 
         if files.get("photo"):
